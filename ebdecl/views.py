@@ -7,12 +7,12 @@ import datetime
 
 menu = {'Главная':3,'Компании': 'company','Декларации': 'decl','Отчеты':1,'Авторизация':2}
 
-#ef index(request):
-#   decls = Decl.objects.all()
-#   form = AddDecl()
-#   datenow = datetime.date.today()
-#   print(datenow)
-#   return render(request, 'ebdecl/index.html', {'datenow':datenow,'form': form, 'menu':menu, 'decls': decls, 'title': 'Главная страница'})
+ef index(request):
+   decls = Decl.objects.all()
+   form = AddDecl()
+   datenow = datetime.date.today()
+   print(datenow)
+   return render(request, 'ebdecl/index.html', {'datenow':datenow,'form': form, 'menu':menu, 'decls': decls, 'title': 'Главная страница'})
 
 def firms(request):
     return HttpResponse("<h1>Клиенты</h1>")
