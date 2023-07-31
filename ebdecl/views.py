@@ -7,7 +7,7 @@ import datetime
 
 menu = {'Главная':3,'Компании': 'company','Декларации': 'decl','Отчеты':1,'Авторизация':2}
 
-ef index(request):
+def index(request):
    decls = Decl.objects.all()
    form = AddDecl()
    datenow = datetime.date.today()
