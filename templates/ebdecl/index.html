@@ -1,0 +1,73 @@
+{% extends 'ebdecl/base.html' %}
+{% block mainmenu %}
+<nav class="navbar bg-body-tertiary">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <img src="Y:\project\ExpressBroker\ExpressBroker\static\ExpressBroker\logosmall.svg" width="30" height="24">
+    </a>
+  </div>
+</nav>
+
+  <form class="container-fluid justify-content-start">
+      {%for m in menu %}
+    <button class="btn btn-outline-success me-2" type="button">{{m}}</button>
+      {% endfor %}
+
+  </form>
+</nav>
+<div class="alert alert-light" role="alert">
+
+</div>
+{% endblock mainmenu %}
+{% block content %}
+
+<div class="alert alert-success" role="alert">
+  СПИСОК ДЕКЛАРАЦИЙ
+</div>
+
+<table class="table table-success table-striped table-bordered" >
+  <thead>
+    <tr>
+      <th scope="col">Компания</th>
+      <th scope="col">Номер декларации</th>
+      <th scope="col">Импорт/Экспорт</th>
+      <th scope="col">Кол-во кодов</th>
+      <th scope="col">№ машины/контейнера</th>
+      <th scope="col">Кол-во машин/контейнеров</th>
+
+
+      <th scope="col">Статус декларации</th>
+      <th scope="col">Дата создания</th>
+
+    </tr>
+  </thead>
+<ul>
+
+
+  <tbody>
+   {%for p in decls %}
+     {% if p.decl_greatdate == datenow %}
+
+            <tr class="{% if p.decl_status.id == 3 %}table-info{% endif %} {% if p.decl_status.id == 2 %}table-danger{% endif %} ">
+            <td>Условие{{p.decl_company_name}}</td>
+            <th> {{p.decl_number}}</th>
+            <th> {{p.decl_tipe}}</th>
+            <th> {{p.decl_code_quantity}}</th>
+            <th> {{p.decl_car_number}}</th>
+            <th> {{p.decl_car_quantity}}</th>
+
+            <th> {{p.decl_status}}</th>
+            <th> {{p.decl_greatdate}}</th>
+            </tr>
+     {% endif %}
+   {%endfor%}
+  </tbody>
+</ul>
+</table>
+{% endblock content %}
+
+{% block footer %}
+<div class="alert alert-success" role="alert">
+<a href="decladd" class="alert-link">Добавить новую декларацию</a>
+</div>
+{% endblock footer %}
