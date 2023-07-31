@@ -21,7 +21,7 @@ from ebdecl.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
   #  path('',include('ebdecl.urls')),
-    path('',index, name = 'home'),
+    path('',DeclHome.as_view(), name = 'home'),
     path('decladd/',decladd, name = 'decladd')
 
 ]
